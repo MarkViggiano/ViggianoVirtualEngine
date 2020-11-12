@@ -1,0 +1,15 @@
+if (command.lower() == "showlogs"):
+        print("==================")
+        print("Logs:")
+        print("==================")
+        for log in this.logs:
+            print(log)
+
+        print("==================")
+
+    if (command.lower() == "clear" or command.lower() == "cls"):
+        this.clearField()
+
+    if (command.lower() == "exit"):
+        print("exiting...")
+        sys.exit()
