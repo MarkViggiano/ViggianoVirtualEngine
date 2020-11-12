@@ -1,0 +1,7 @@
+==============================
+Project Requirements
+==============================
+
+This project requires:
+ - Node.js 8.11+
+ - Python 3+

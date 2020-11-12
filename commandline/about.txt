@@ -1,0 +1,3 @@
+What is this?
+
+This portion of the project is the python-based command line interface.
