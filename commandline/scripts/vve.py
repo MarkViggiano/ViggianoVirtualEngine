@@ -1,5 +1,4 @@
 from vveState import VveState
-from commands.baseCommand import Command
 from commands.commandImporter import *
 import platform
 import os
