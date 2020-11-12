@@ -3,6 +3,7 @@ from commands.commandImporter import *
 import platform
 import os
 import sys
+import ctypes
 
 class Vve:
     def __init__(this):
@@ -11,12 +12,20 @@ class Vve:
         this.commands = []
 
     def start(this):
+        this.clearField()
+        ctypes.windll.kernel32.SetConsoleTitleW("VVE - Viggiano Virtual Engine")
+        print("==================")
+        print("Starting VVE...")
+        print("OS: {0}".format(platform.platform()))
+        print("==================")
         print("VVE started!")
         this.registerCommands()
         this.handleCommands()
 
     def registerCommands(this):
-        this.commands.append(TestCommand())
+        this.commands.append(ExitCommand())
+        this.commands.append(ClearCommand(this))
+        this.commands.append(LogCommand(this))
         return
 
     def clearField(this):
@@ -53,8 +62,4 @@ class Vve:
         this.handleCommands()
 
 vve = Vve()
-print("==================")
-print("Starting VVE...")
-print("OS: {0}".format(platform.platform()))
-print("==================")
 vve.start()
