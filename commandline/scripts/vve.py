@@ -24,6 +24,7 @@ class Vve:
 
     def registerCommands(this):
         this.commands.append(ExitCommand())
+        this.commands.append(SystemCommand())
         this.commands.append(ClearCommand(this))
         this.commands.append(LogCommand(this))
         return
