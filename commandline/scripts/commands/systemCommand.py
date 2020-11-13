@@ -23,7 +23,7 @@ class SystemCommand(Command):
         print("-----------------------")
         print("Memory")
         print("-----------------------\n")
-        print("Total Memory: {0}\nMemory In Use: {1}\nAvailable/Free Memory: {2}\nPercent Used: {3}\n".format(totalMemory, usedMemory, availableMemory, percentUsed))
+        print("Total Memory: {0} GB\nMemory In Use: {1} GB\nAvailable/Free Memory: {2} GB\nPercent Used: {3}%\n".format(totalMemory, usedMemory, availableMemory, percentUsed))
         print("-----------------------")
         print("CPU")
         print("-----------------------\n")
