@@ -54,12 +54,16 @@ class Vve:
 
     def processCommand(this, commandName : str):
         commands = this.commands
+        executed = False
         for command in commands:
             if command.getName().lower() == commandName.lower():
                 this.logAction("Command: {0} has been executed by the user!".format(commandName))
                 command.execute()
+                executed = True
                 break
 
+        if not executed:
+            print("Command not found... :(")
         this.handleCommands()
 
 vve = Vve()
