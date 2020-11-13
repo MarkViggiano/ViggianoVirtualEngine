@@ -5,7 +5,7 @@ class LogCommand(Command):
         super().__init__("showlogs")
         this.vve = vve
 
-    def execute(this):
+    def execute(this, *args):
         print("==================")
         print("Logs:")
         print("------------------")

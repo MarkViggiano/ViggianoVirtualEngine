@@ -7,5 +7,5 @@ class Command(ABC):
     def getName(this):
         return this.name
 
-    def execute(this):
+    def execute(this, *args):
         pass

@@ -5,7 +5,7 @@ class SystemCommand(Command):
     def __init__(this):
         super().__init__("system")
 
-    def execute(this):
+    def execute(this, *args):
         #memory variables: total, available, percent, used, free
         #divide by 1 billion because 1 gigabit = 1 billion bits, virtual_memory() returns bits
         memory = psutil.virtual_memory()

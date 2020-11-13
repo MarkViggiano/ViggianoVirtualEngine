@@ -7,7 +7,7 @@ class ClearCommand(Command):
         super().__init__("clear")
         this.vve = vve
 
-    def execute(this):
+    def execute(this, *args):
         this.vve.clearField()
         print("==================")
         print("Starting VVE...")
