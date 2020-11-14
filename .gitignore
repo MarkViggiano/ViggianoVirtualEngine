@@ -1,2 +1,4 @@
 commandline/scripts/__pycache__/*
 commandline/scripts/commands/__pycache__/*
+node/scripts/node_modules/*
+node/scripts/package-lock.json
