@@ -32,6 +32,7 @@ class Vve:
     def clearField(this):
         system = platform.platform()
         if "windows" in system.lower():
+            os.system('clear') #for shell prompt
             os.system('cls')
 
         if "linux" in system.lower():
