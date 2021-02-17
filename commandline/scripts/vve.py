@@ -6,31 +6,31 @@ import sys
 import ctypes
 
 class Vve:
-    def __init__(this):
-        this.state : VveState = VveState.COMMAND
-        this.logs = []
-        this.commands = []
+    def __init__(self):
+        self.state : VveState = VveState.COMMAND
+        self.logs = []
+        self.commands = []
 
-    def start(this):
-        this.clearField()
+    def start(self):
+        self.clearField()
         ctypes.windll.kernel32.SetConsoleTitleW("VVE - Viggiano Virtual Engine")
         print("==================")
         print("Starting VVE...")
         print("OS: {0}".format(platform.platform()))
         print("==================")
         print("VVE started!")
-        this.registerCommands()
-        this.handleCommands()
+        self.registerCommands()
+        self.handleCommands()
 
-    def registerCommands(this):
-        this.commands.append(ExitCommand())
-        this.commands.append(SystemCommand())
-        this.commands.append(NotifyCommand())
-        this.commands.append(ClearCommand(this))
-        this.commands.append(LogCommand(this))
+    def registerCommands(self):
+        self.commands.append(ExitCommand())
+        self.commands.append(SystemCommand())
+        self.commands.append(NotifyCommand())
+        self.commands.append(ClearCommand(self))
+        self.commands.append(LogCommand(self))
         return
 
-    def clearField(this):
+    def clearField(self):
         system = platform.platform()
         if "windows" in system.lower():
             os.system('clear') #for shell prompt
@@ -39,37 +39,37 @@ class Vve:
         if "linux" in system.lower():
             os.system('clear')
 
-    def getState(this):
-        return this.state
+    def getState(self):
+        return self.state
 
-    def setState(this, state : VveState):
-        this.state = state
+    def setState(self, state : VveState):
+        self.state = state
 
-    def handleCommands(this):
-        if (this.getState() == VveState.COMMAND):
+    def handleCommands(self):
+        if (self.getState() == VveState.COMMAND):
             command = input()
-            this.processCommand(command)
+            self.processCommand(command)
             return
 
-    def logAction(this, action):
-        this.logs.append(action)
+    def logAction(self, action):
+        self.logs.append(action)
 
-    def processCommand(this, commandName : str):
+    def processCommand(self, commandName : str):
         commandInput = list(commandName.split(" "))
         name = commandInput[0]
         commandArgs = commandInput[1:]
-        commands = this.commands
+        commands = self.commands
         executed = False
         for command in commands:
             if command.getName().lower() == name.lower():
-                this.logAction("Command: {0} has been executed by the user!".format(name))
+                self.logAction("Command: {0} has been executed by the user!".format(name))
                 command.execute(commandArgs)
                 executed = True
                 break
 
         if not executed:
             print("Command not found... :(")
-        this.handleCommands()
+        self.handleCommands()
 
 vve = Vve()
 vve.start()

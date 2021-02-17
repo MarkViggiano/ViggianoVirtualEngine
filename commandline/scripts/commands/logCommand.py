@@ -1,15 +1,15 @@
 from commands.baseCommand import Command
 
 class LogCommand(Command):
-    def __init__(this, vve):
+    def __init__(self, vve):
         super().__init__("showlogs")
-        this.vve = vve
+        self.vve = vve
 
-    def execute(this, *args):
+    def execute(self, *args):
         print("==================")
         print("Logs:")
         print("------------------")
-        for log in this.vve.logs:
+        for log in self.vve.logs:
             print(log)
 
         print("==================")

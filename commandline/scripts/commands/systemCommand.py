@@ -2,10 +2,10 @@ from commands.baseCommand import Command
 import psutil
 
 class SystemCommand(Command):
-    def __init__(this):
+    def __init__(self):
         super().__init__("system")
 
-    def execute(this, *args):
+    def execute(self, *args):
         #memory variables: total, available, percent, used, free
         #divide by 1 billion because 1 gigabit = 1 billion bits, virtual_memory() returns bits
         memory = psutil.virtual_memory()
@@ -17,7 +17,7 @@ class SystemCommand(Command):
         #cpu
         cpuPercent = psutil.cpu_percent(interval=None) #for non-blocking
         cpuFreq = psutil.cpu_freq(percpu=False).current / 1000 #Faster than calling data for all cores and averaging them. // Divide by 1000 to bring to GHz
-        cpuCores = psutil.cpu_count(logical=False) #Logical cores = core count * threads they can run, this is called hyper threading and is typically double the cores
+        cpuCores = psutil.cpu_count(logical=False) #Logical cores = core count * threads they can run, self is called hyper threading and is typically double the cores
         print("=======================")
         print("\nSystem Stats\n")
         print("-----------------------")
