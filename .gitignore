@@ -2,3 +2,6 @@ commandline/scripts/__pycache__/*
 commandline/scripts/commands/__pycache__/*
 node/scripts/node_modules/*
 node/scripts/package-lock.json
+node/scripts/config.json
+node/scripts/applications/test/node_modules/*
+node/scripts/applications/test/package-lock.json
