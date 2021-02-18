@@ -1,8 +1,9 @@
 class Test {
-  constructor(port, db) {
+  constructor(port, db, logger) {
     this.express = require('express');
     this.app = this.express();
 
+    this.logger = logger;
     this.db = db;
     this.port = port;
   }

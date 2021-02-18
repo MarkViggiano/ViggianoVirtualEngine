@@ -1,0 +1,19 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "An app that plays music!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "music",
+    "mp3"
+  ],
+  "author": "Mark Viggiano",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  }
+}

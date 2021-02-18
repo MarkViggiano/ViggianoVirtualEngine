@@ -3,5 +3,11 @@ commandline/scripts/commands/__pycache__/*
 node/scripts/node_modules/*
 node/scripts/package-lock.json
 node/scripts/config.json
+
+# Applications
+
 node/scripts/applications/test/node_modules/*
 node/scripts/applications/test/package-lock.json
+
+node/scripts/applications/music/node_modules/*
+node/scripts/applications/music/package-lock.json

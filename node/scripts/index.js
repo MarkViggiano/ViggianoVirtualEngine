@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const fs = require('fs');
+const Logger = require('./utils/logger.js');
+const logger = new Logger("VVE");
 
 //Utilities
 const config = require("./config.json");
@@ -41,12 +43,14 @@ function createDatabaseConnection() {
     password: config.mysql.password,
     database: config.mysql.database
   });
+  logger.log("Database", "Successfully connected to the database!");
 }
 
 function registerApplications() {
+  let startTime = Date.now();
   fs.readdir("./applications/", async (e, applications) => {
-    if (e) return console.log(`[VVE] Failed to load directories: ${e}`);
-    if (!applications) return console.log(`[VVE] Applications directory missing!`);
+    if (e) return logger.log("Application", `Failed to load directories: ${e}`);
+    if (!applications) return logger.log("Application", "Applications directory missing!");
 
     let count = 1;
     for (const application of applications) {
@@ -55,20 +59,22 @@ function registerApplications() {
       let name = applicationConfig.name;
       let port = 8000 + count;
       let ApplicationClass = require(`./${path}/${applicationConfig.srcFile}`);
-      let newApplication = new ApplicationClass(port, db);
+      let newApplication = new ApplicationClass(port, db, logger);
       newApplication.start();
 
       connections.set(name.toLowerCase(), port);
-      console.log(`[VVE] Started Application: ${name} on Port: ${port}`);
+      logger.log("Application", `Started Application: ${name} on Port: ${port}`);
 
       count++;
     }
+
+    logger.log("Application", `Startup took approximately: ${Date.now() - startTime} ms`);
 
   })
 }
 
 app.listen(8000, () => {
-  console.log("[VVE] Started VVE on Port 8000");
+  logger.log(null, "Started VVE on Port 8000");
 
   createDatabaseConnection();
   registerApplications();
