@@ -17,14 +17,14 @@ class Music {
     this.app.use(this.express.static(__dirname + '/public'));
 
     this.app.get("/", function (req, res) {
-      res.send("Music App");
+      res.sendFile(__dirname + "/pages/index.html");
     })
 
     this.app.use("/songs/", this.songs);
     this.app.use("/playlists", this.playlists);
 
     this.app.listen(this.port, () => {
-      this.db.query("CREATE TABLE IF NOT EXISTS songs(name VARCHAR(255), playlist VARCHAR(255))", function (error, result) {if (error) throw error;})
+      this.db.query("CREATE TABLE IF NOT EXISTS songs(name VARCHAR(255), playlist VARCHAR(255), author VARCHAR(255))", function (error, result) {if (error) throw error;})
       this.logger.log("Music", "Connected to the Songs Table!");
     });
   }
