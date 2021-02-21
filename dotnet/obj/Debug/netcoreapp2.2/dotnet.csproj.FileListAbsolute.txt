@@ -28,3 +28,4 @@ D:\Coding\Mark Viggiano\ViggianoVirtualEngine\dotnet\obj\Debug\netcoreapp2.2\dot
 D:\Coding\Mark Viggiano\ViggianoVirtualEngine\dotnet\obj\Debug\netcoreapp2.2\dotnet.dll
 D:\Coding\Mark Viggiano\ViggianoVirtualEngine\dotnet\obj\Debug\netcoreapp2.2\dotnet.pdb
 D:\Coding\Mark Viggiano\ViggianoVirtualEngine\dotnet\obj\Debug\netcoreapp2.2\dotnet.csproj.CopyComplete
+D:\Coding\Mark Viggiano\ViggianoVirtualEngine\dotnet\obj\Debug\netcoreapp2.2\Razor\Pages\Test.g.cshtml.cs

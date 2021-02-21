@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnet.Pages
 {
-    public class PrivacyModel : PageModel
+    public class TestModel : PageModel
     {
         public void OnGet()
         {
-          Console.WriteLine("Loaded Privacy");
+          Console.WriteLine("Loaded Test");
         }
     }
 }
