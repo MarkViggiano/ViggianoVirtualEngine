@@ -29,6 +29,7 @@ class Vve:
         self.commands.append(ClearCommand(self))
         self.commands.append(LogCommand(self))
         self.commands.append(HelpCommand(self))
+        self.commands.append(CmdCommand())
         return
 
     def clearField(self):
@@ -63,7 +64,7 @@ class Vve:
         executed = False
         for command in commands:
             if command.getName().lower() == name.lower():
-                self.logAction("Command: {0} has been executed by the user!".format(name))
+                self.logAction("Command: {0} has been executed by the user! Arguments are: {1}".format(name, commandArgs))
                 command.execute(commandArgs)
                 executed = True
                 break
