@@ -28,6 +28,7 @@ class Vve:
         self.commands.append(NotifyCommand())
         self.commands.append(ClearCommand(self))
         self.commands.append(LogCommand(self))
+        self.commands.append(HelpCommand(self))
         return
 
     def clearField(self):
