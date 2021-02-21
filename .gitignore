@@ -11,3 +11,6 @@ node/scripts/applications/test/package-lock.json
 
 node/scripts/applications/music/node_modules/*
 node/scripts/applications/music/package-lock.json
+
+node/scripts/applications/trainsite/node_modules/*
+node/scripts/applications/trainsite/package-lock.json

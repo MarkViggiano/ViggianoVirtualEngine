@@ -1,0 +1,39 @@
+/*
+**Theme colors**
+
+backgroud: white;
+primary color: #5A60F3 (Light Blue)
+secondary color 1: #D1AA0A (Yellow)
+secondary color 2: lightgray
+*/
+body {
+  overflow-x: hidden;
+}
+
+hr {
+  border-color: black;
+}
+
+.navbar-dark {
+  background-color: #5A60F3!important;
+}
+
+.box {
+  padding: 10px;
+  color: black;
+}
+
+.border-vrr {
+  border-color: black!important;
+  border-top-color: #D1AA0A!important;
+  border-width: 2px!important;
+}
+
+.title {
+  color: #D1AA0A;
+  text-shadow: 1px 1px 1px black;
+}
+
+li.pointless {
+  list-style-type: none!important;
+}

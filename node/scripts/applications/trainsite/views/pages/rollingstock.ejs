@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% pageName = "Rolling Stock" %>
+    <%- include('../partials/header') %>
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="box border border-vrr rounded shadow">
+        <h1 class="title text-center">Rolling Stock</h1>
+        <hr class="w-75">
+        <input class="border rounded shadow form-control p-4" id="filteredInput" placeholder="Search rolling stock..." onkeyup="filter()">
+
+        <ul id="searchList">
+          <li class="pointless">
+            <div class="box mt-3 p-2">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/logo.jpg" class="rounded border border-vrr shadow" alt="up engine" width="75%">
+                </div>
+                <div class="col-sm-6" style="margin-top: 7%;">
+                  <h3>UP Disiel SD40AC</h3>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </li>
+
+          <li class="pointless">
+            <div class="box mt-3">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/logo.jpg" class="rounded border border-vrr shadow" alt="up engine" width="75%">
+                </div>
+                <div class="col-sm-6" style="margin-top: 7%;">
+                  <h3>NJT Disiel F40PH</h3>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </li>
+
+          <li class="pointless">
+            <div class="box mt-3">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/logo.jpg" class="rounded border border-vrr shadow" alt="up engine" width="75%">
+                </div>
+                <div class="col-sm-6" style="margin-top: 7%;">
+                  <h3>NJT Electric APL-46</h3>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+    <%- include('../partials/filter') %>
+  </body>
+</html>

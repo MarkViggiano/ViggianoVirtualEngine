@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  function filter() {
+    let input = document.getElementById("filteredInput");
+    let inputText = input.value.toLowerCase();
+    let ul = document.getElementById("searchList");
+    let liTags = ul.getElementsByTagName("li");
+    for (li of liTags) {
+      let h3 = li.getElementsByTagName("h3");
+      let txtValue = h3[0].firstChild.nodeValue;
+      if (txtValue.toLowerCase().indexOf(inputText) > -1) li.style.display = "";
+      else li.style.display = "none";
+    }
+  }
+</script>
