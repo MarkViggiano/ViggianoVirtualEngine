@@ -24,7 +24,6 @@ class TrainSite {
     this.app.set('views', this.path.join(__dirname, './views'));
     this.app.set('view engine', 'ejs');
     this.app.use(this.express.static(__dirname + '/public'));
-    this.logger.log("TrainSite", __dirname);
     this.app.use(this.cookieParser());
 
     // Parse URL-encoded bodies (as sent by HTML forms)
