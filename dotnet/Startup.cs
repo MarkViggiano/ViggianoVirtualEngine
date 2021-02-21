@@ -55,14 +55,13 @@ namespace dotnet {
 
             var routeBuilder = new RouteBuilder(app, trackPackageRouteHandler);
             RegisterRoutes(routeBuilder);
-            
+
             var routes = routeBuilder.Build();
             app.UseRouter(routes);
 
         }
 
         public void RegisterRoutes(RouteBuilder routeBuilder) {
-          routeBuilder.MapRoute("Track Package Route","package/{operation:regex(^track|create$)}/{id:int}");
 
           routeBuilder.MapGet("hello/{name}", context => {
             var name = context.GetRouteValue("name");
@@ -71,6 +70,11 @@ namespace dotnet {
             // use routeBuilder.MapGet("hello/{*name}"
             return context.Response.WriteAsync($"Hi, {name}!");
           });
+
+          routeBuilder.MapGet("application/", context => {
+            return context.Response.WriteAsync("This is VVE's web server for cpu bound activities!");
+          });
+
         }
 
     }
