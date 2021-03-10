@@ -5,3 +5,4 @@ from commands.systemCommand import *
 from commands.notifyCommand import *
 from commands.helpCommand import *
 from commands.cmdCommand import *
+from commands.togglemodeCommand import *

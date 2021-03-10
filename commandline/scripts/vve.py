@@ -4,6 +4,7 @@ import platform
 import os
 import sys
 import ctypes
+import PyV8
 
 class Vve:
     def __init__(self):
@@ -48,9 +49,19 @@ class Vve:
         self.state = state
 
     def handleCommands(self):
+        command = input()
         if (self.getState() == VveState.COMMAND):
-            command = input()
             self.processCommand(command)
+            return
+
+        if (self.getState() == VveState.PY):
+            print(eval(command))
+            return
+
+        if (self.getState() == VveState.JS):
+            ctx = PyV8.JSContext()
+            ctx.enter()
+            print(ctx.eval(command))
             return
 
     def logAction(self, action):
