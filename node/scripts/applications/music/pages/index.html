@@ -2,17 +2,59 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Music || Home</title>
   </head>
   <body>
 
-    <audio controls id="song" preload="metadata" controlsList="nodownload">
-      <source src="/songs/Tom MacDonald - 'NO LIVES MATTER'.mp3" type="audio/mp3">
+    <audio id="song" preload="metadata" controlsList="nodownload">
+      <source src="" type="audio/mp3">
     </audio>
 
     <script type="text/javascript">
-      const song = document.getElementById("song");
-      song.loop = true;
+      const path = "http://localhost:8001/songs/";
+      let songs = [];
+      let playlists = [];
+
+      class Player {
+        constructor(audio, source) {
+          this.audio = audio;
+          this.source = source;
+          this.songName = null;
+        }
+
+        setSong(songName) {
+          this.songName = songName;
+          this.source.src = `${path}${songName}.mp3`;
+          this.audio.load();
+          this.audio.play();
+        }
+
+        getSongName() {
+          return this.songName;
+        }
+
+      }
+
+      function registerSongs() {
+        fetch('./songs/all')
+	       .then(response => response.json())
+	        .then(data => songs = data)
+	         .catch(err => console.error(err));
+      }
+
+      function registerPlaylists() {
+
+      }
+
+      window.addEventListener('load', (event) => {
+        const song = document.getElementById("song");
+        const source = song.children[0];
+        const player = new Player(song, source);
+
+        registerSongs();
+        registerPlaylists();
+      });
+
     </script>
 
   </body>

@@ -7,9 +7,6 @@ class Music {
     this.db = db;
     this.port = port;
 
-    //routes
-    this.songs = require("./routes/songs.js");
-    this.playlists = require("./routes/playlists.js");
   }
 
   async start() {
@@ -20,12 +17,33 @@ class Music {
       res.sendFile(__dirname + "/pages/index.html");
     })
 
-    this.app.use("/songs/", this.songs);
-    this.app.use("/playlists", this.playlists);
+    this.app.use("/songs/", function (req, res) {
+      this.db.query("SELECT * FROM songs", function (error, result) {
+        if (error) throw error;
+        res.send(result);
+      })
+    });
+
+    this.app.use("/playlists/", function (req, res) {
+      this.db.query("SELECT * FROM playlists", function (error, result) {
+        if (error) throw error;
+        res.send(result);
+      })
+    });
 
     this.app.listen(this.port, () => {
-      this.db.query("CREATE TABLE IF NOT EXISTS songs(name VARCHAR(255), playlist VARCHAR(255), author VARCHAR(255))", function (error, result) {if (error) throw error;})
+      this.db.query("CREATE TABLE IF NOT EXISTS songs(name VARCHAR(255), playlist VARCHAR(255), author VARCHAR(255))", function (error, result) {
+        if (error) throw error;
+      });
+
       this.logger.log("Music", "Connected to the Songs Table!");
+
+      this.db.query("CREATE TABLE IF NOT EXISTS playlists (name VARCHAR(255), image VARCHAR(255))", function (error, result) {
+        if (error) throw error;
+      });
+
+      this.logger.log("Music", "Connected to the Playlists Table!");
+
     });
   }
 
