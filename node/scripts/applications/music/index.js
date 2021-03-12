@@ -10,6 +10,7 @@ class Music {
   }
 
   async start() {
+    let local = this;
 
     this.app.use(this.express.static(__dirname + '/public'));
 
@@ -18,14 +19,14 @@ class Music {
     })
 
     this.app.use("/songs/", function (req, res) {
-      this.db.query("SELECT * FROM songs", function (error, result) {
+      local.db.query("SELECT * FROM songs", function (error, result) {
         if (error) throw error;
         res.send(result);
       })
     });
 
     this.app.use("/playlists/", function (req, res) {
-      this.db.query("SELECT * FROM playlists", function (error, result) {
+      local.db.query("SELECT * FROM playlists", function (error, result) {
         if (error) throw error;
         res.send(result);
       })

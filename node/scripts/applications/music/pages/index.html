@@ -6,14 +6,18 @@
   </head>
   <body>
 
-    <audio id="song" preload="metadata" controlsList="nodownload">
+    <div class="">
+
+    </div>
+
+    <audio id="player" preload="metadata" controlsList="nodownload">
       <source src="" type="audio/mp3">
     </audio>
 
     <script type="text/javascript">
       const path = "http://localhost:8001/songs/";
-      let songs = [];
-      let playlists = [];
+      let songMap = new Map();
+      let playlistMap = new Map();
 
       class Player {
         constructor(audio, source) {
@@ -35,24 +39,51 @@
 
       }
 
+      const song = document.getElementById("player");
+      const source = song.children[0];
+      const player = new Player(song, source);
+
+
+      /* button logic */
+
+      function playSong() {
+        if (player.songName != null && player.songName != undefined) player.audio.play();
+      }
+
+      function nextSong() {
+
+      }
+
+
+      /* on document load */
+
       function registerSongs() {
-        fetch('./songs/all')
+        fetch('./songs/')
 	       .then(response => response.json())
-	        .then(data => songs = data)
+	        .then(songs => {
+            for (const song of songs) {
+              songMap.set(song.name.toLowerCase(), song);
+            }
+          })
 	         .catch(err => console.error(err));
       }
 
       function registerPlaylists() {
-
+        fetch('./playlists/')
+        .then(response => response.json())
+         .then(playlists => {
+           for (const playlist of playlists) {
+             playlistMap.set(playlist.name.toLowerCase(), playlist);
+           }
+         })
+          .catch(err => console.error(err));
       }
 
       window.addEventListener('load', (event) => {
-        const song = document.getElementById("song");
-        const source = song.children[0];
-        const player = new Player(song, source);
 
         registerSongs();
         registerPlaylists();
+
       });
 
     </script>
