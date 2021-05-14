@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+body {
+  overflow-x: hidden;
+}
+
+hr {
+  border-color: black;
+}
+
+.box {
+  padding: 10px;
+  color: black;
+}
+
+li.pointless {
+  list-style-type: none!important;
+}
+
+.title {
+  font-family: 'Akaya Telivigala', cursive;
+  font-size: 60px;
+  color: #0d6efd;
+  text-shadow: 1px 1px 1px black;
+}

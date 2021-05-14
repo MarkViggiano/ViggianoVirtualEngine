@@ -48,7 +48,7 @@ function createDatabaseConnection() {
 
 function registerApplications() {
   let startTime = Date.now();
-  fs.readdir("./applications/", async (e, applications) => {
+  fs.readdir("./node/scripts/applications/", async (e, applications) => { //use node/scripts/ because of the method of starting vve
     if (e) return logger.log("Application", `Failed to load directories: ${e}`);
     if (!applications) return logger.log("Application", "Applications directory missing!");
 
