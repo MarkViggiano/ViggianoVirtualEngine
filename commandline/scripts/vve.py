@@ -4,7 +4,6 @@ import platform
 import os
 import sys
 import ctypes
-import PyV8
 
 class Vve:
     def __init__(self):
@@ -59,8 +58,7 @@ class Vve:
             return
 
         if (self.getState() == VveState.JS):
-            ctx = PyV8.JSContext()
-            ctx.enter()
+            # TODO: make it exeucte js or remove the js feature
             print(ctx.eval(command))
             return
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj": {}
+    "D:\\Coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj": {}
   },
   "projects": {
-    "D:\\coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj": {
+    "D:\\Coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj",
+        "projectUniqueName": "D:\\Coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj",
         "projectName": "dotnet",
-        "projectPath": "D:\\coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj",
+        "projectPath": "D:\\Coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\dotnet.csproj",
         "packagesPath": "C:\\Users\\Wayne\\.nuget\\packages\\",
-        "outputPath": "D:\\coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\obj\\",
+        "outputPath": "D:\\Coding\\Mark Viggiano\\ViggianoVirtualEngine\\dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
